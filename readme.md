@@ -7,7 +7,7 @@ After selecting a flight in [**Flightradar24**](https://www.flightradar24.com/),
 ## Installation
 Since this extension is not published, You will have to install it manually.
 
-* Clone this repository and export it to a folder.
+* Download the latest (release)[/releases] and export it to a folder.
 * Open Chrome and head to Manage Extensions: `chrome://extensions/`
 * Enable Developer mode at the top right or left.
 * Click on `Load unpacked` and select the `flightradar-to-simbrief` folder.
