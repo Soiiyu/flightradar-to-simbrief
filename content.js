@@ -5,7 +5,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             const hidden = document.querySelectorAll('[data-testid=base-tooltip__content]');
             let origin, destination;
 
-            // Find the offset of the origin and destination
+            // Find the offset of the origin and destination,
+            // Since there can be an extra element in the hidden array based on screen size
             for (let i = 1; i < hidden.length; i++) {
                 origin = hidden[i].textContent.slice(-5, -1);
                 destination = hidden[i + 1].textContent.slice(-5, -1);
@@ -13,7 +14,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 if (origin.toUpperCase() == origin) i = hidden.length;
             }
 
-            // Grab the call sign and split it into airline and flight number
+            // Grab the call sign and split it into airline and flight number.
+            // First 3 letters being the airline, and the following characters the flight number.
             const callsign = document.querySelector("[data-testid=aircraft-panel__header__callsign]").textContent;
             const airline = callsign.substring(0, 3)
             const flightNumber = callsign.substring(3)

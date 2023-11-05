@@ -18,8 +18,10 @@ function getFlight() {
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
         const tab = tabs[0];
 
+        // Request flight details from content.js
         chrome.tabs.sendMessage(tab.id, { action: 'extract-flight' }, res => {
-            if (res.status == 'SUCCESS') {
+            if (res.status && res.status == 'SUCCESS') {
+                // If we successfully got the data, update the according elements
                 const { origin, destination, airline, flightNumber, aircraftType } = res
 
                 departureElement.textContent = origin
@@ -32,6 +34,7 @@ function getFlight() {
 
                 simBriefURL = `https://dispatch.simbrief.com/options/custom?airline=${airline}&fltnum=${flightNumber}&type=${aircraftType}&orig=${origin}&dest=${destination}`;
             } else {
+                // If something goes wrong, reset the url and display this message
                 simBriefURL = ''
                 data.textContent = `An error occured loading the flight.\nThis usually happens if no flight is selected.`
             }
@@ -40,21 +43,3 @@ function getFlight() {
 }
 
 getFlight()
-
-function extractFlight() {
-    const hidden = document.querySelectorAll('[data-testid=base-tooltip__content]');
-    const origin = hidden[1].textContent;
-    const destination = hidden[2].textContent;
-
-    const callsign = document.querySelector("[data-testid=aircraft-panel__header__callsign]").textContent;
-    const airline = callsign.substring(0, 3)
-    const flightNumber = callsign.substring(3)
-
-    const aircraftType = document.querySelector("[data-testid=aircraft-panel__header__model]").textContent
-
-    const simBriefURL = `https://dispatch.simbrief.com/options/custom?airline=${airline}&fltnum=${flightNumber}&type=${aircraftType}&orig=${origin}&dest=${destination}`;
-
-    console.log(origin, destination, airline, flightNumber, aircraftType)
-    console.log(simBriefURL)
-    chrome.tabs.create({ url: simBriefURL });
-}
