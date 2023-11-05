@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    max-width: 200px;
+    padding: 10px;
+    color: #ffffff;
+    background: rgb(41, 90, 102);
+    background: linear-gradient(128deg, rgb(12, 35, 73), rgba(76, 71, 166, 1) 100%);
+    border: 2px solid #d9bdfe;
+    border-radius: 15px;
+}
+
+.part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 0.3rem;
+}
+
+.value {
+    font-size: x-large;
+    font-weight: bold;
+    color: #ffca38;
+}
+
+p {
+    padding: 0.3rem;
+}
+
+button {
+    font-weight: bolder;
+    margin: 1.5rem;
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 20px;
+    color: #0d6d35;
+    background: rgb(134, 241, 94);
+    background: linear-gradient(90deg, rgba(134, 241, 94, 1) 0%, rgba(61, 247, 198, 1) 100%);
+    border: 0.2rem solid rgb(22, 142, 94);
+}
+
+#data {
+    width: 90%;
+    word-wrap: break-word;
+}
+
+@font-face {
+    font-family: "Other Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(assets/Other-Icons.woff2) format("woff2")
+}
+
+.source {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-family: "Other Icons";
+    font-size: xx-large;
+}
+
+#github {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    -webkit-transition: color 0.3s;
+}
+
+#github:hover {
+    color:#d9bdfe;
+}

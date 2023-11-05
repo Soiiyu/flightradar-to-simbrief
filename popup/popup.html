@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flightradar to SimBrief</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h2>Flightradar to SimBrief</h2>
+        <div id="data">Loading... If this is taking too long, try refreshing the page.</div>
+        <div class="part">
+            <h3>Route</h3>
+            <span id="route">
+                <p class="value" id="departure"></p>
+                <svg id="right-arrow" xmlns="http://www.w3.org/2000/svg" width="23.828" height="14.769"><path d="m13.616 2.828 2.585 2.586H0v4h16.143l-2.527 2.526 2.828 2.829 7.384-7.384L16.444 0l-2.828 2.828z" fill="#df5c04"/></svg>
+                <p class="value" id="arrival"></p>
+            </span>
+        </div>
+        <div class="part">
+            <h3>Callsign</h3>
+            <span id="callsign">
+                <p class="value" id="airline"></p>
+                <p class="value" id="flightNumber"></p>
+            </span>
+        </div>
+        <div class="part">
+            <h3>Aircraft</h3>
+            <span id="aircraft">
+                <p class="value" id="aircraftType"></p>
+            </span>
+        </div>
+    </div>
+    <button id="extractFlight">Extract Flight</button>
+    <div class="source">
+        <a id="github" href="https://github.com/Soiiyu/flightradar-to-simbrief" target="_blank"></a>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

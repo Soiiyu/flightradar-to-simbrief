@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Flightradar to SimBrief",
+    "description": "Extract flights from Flightradar into a SimBrief Flight plan.",
+    "version": "1.0.0",
+    "permissions": [
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://www.flightradar24.com/*"
+    ],
+    "icons": {},
+    "content_scripts": [{
+       "matches": ["https://www.flightradar24.com/*"],
+       "js": ["content.js"]
+    }],
+    "action": {
+        "default_popup": "popup/popup.html",
+        "default_icon": {}
+    }
+
+}
